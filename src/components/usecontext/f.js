@@ -1,4 +1,9 @@
-import React, { useEffect, useState, createContext } from 'react'
+import React, {
+  useEffect,
+  useState,
+  createContext,
+  useReducer
+} from 'react'
 import C from './c';
 export const transferContext = createContext();
 
@@ -12,11 +17,18 @@ function F() {
   
   return (
     <div>
-      <h2>parent：{text}：{count}</h2>
-      <button onClick={_ => setCount(count + 1) }>父增</button>
+      <h2>useContext:</h2>
+      <h5>
+        <span>parent：{text}：{count}</span>
+        <button onClick={_ => setCount(count + 1) }>父增</button>
+      </h5>
+      {/* transferContext.Provider 嵌套组件向下传递属性的容器 */}
       <transferContext.Provider value={count}>
         <C />
       </transferContext.Provider>
+
+      <hr />
+      <h2>useReducer:</h2>
     </div>
   )
 }
