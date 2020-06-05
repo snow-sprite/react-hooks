@@ -1,18 +1,22 @@
 import React, {
   useEffect,
   useState,
-  createContext,
-  useReducer
+  createContext
 } from 'react'
-import C from './c';
+import Child from './Child';
 export const transferContext = createContext();
 
-function F() {
+function Parent() {
   const [count, setCount] = useState(0)
   const [text, changeText] = useState('初始值')
   
+  const countEvent = (c, t) => {
+    setCount(c+=1)
+    // TODO count递增 text多次重复修改
+    changeText(t = '修改值')
+  }
   useEffect(() => {
-    changeText(text =>  text = '修改值')
+    // changeText(text =>  text = '修改值')
   }, [count])
   
   return (
@@ -20,16 +24,13 @@ function F() {
       <h2>useContext:</h2>
       <h5>
         <span>parent：{text}：{count}</span>
-        <button onClick={_ => setCount(count + 1) }>父增</button>
+        <button onClick={ _ => countEvent(count, text) }>父增</button>
       </h5>
       {/* transferContext.Provider 嵌套组件向下传递属性的容器 */}
       <transferContext.Provider value={count}>
-        <C />
+        <Child />
       </transferContext.Provider>
-
-      <hr />
-      <h2>useReducer:</h2>
     </div>
   )
 }
-export default F;
+export default Parent;

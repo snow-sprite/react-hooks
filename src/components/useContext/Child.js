@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { transferContext } from './f'
-function C() {
+import { transferContext } from './Parent'
+function Child() {
   const value = useContext(transferContext)
   return (
     <div>
@@ -9,4 +9,4 @@ function C() {
   );
 }
 
-export default C;
+export default Child;

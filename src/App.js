@@ -1,13 +1,17 @@
 import React from 'react';
 import './App.css';
-import F from './components/usecontext/f';
 
+/* useContext */
+// import Area from './components/useContext/Parent';
+
+/* useReducer */
+import Area from './components/useReducer/index'; 
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <F/>
+        <Area />
       </header>
     </div>
   );
