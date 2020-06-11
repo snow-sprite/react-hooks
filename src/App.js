@@ -5,7 +5,10 @@ import './App.css';
 // import Area from './components/useContext/Parent';
 
 /* useReducer */
-import Area from './components/useReducer/index'; 
+// import Area from './components/useReducer/index'; 
+
+/* useMemo */
+import Area from './components/useMemo/index'
 
 function App() {
   return (
