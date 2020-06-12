@@ -8,7 +8,10 @@ import './App.css';
 // import Area from './components/useReducer/index'; 
 
 /* useMemo */
-import Area from './components/useMemo/index'
+// import Area from './components/useMemo/index';
+
+/* useRef */
+import Area from './components/useRef/index';
 
 function App() {
   return (

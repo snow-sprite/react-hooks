@@ -5,11 +5,11 @@ function Parent() {
   const [lastName, setLastName] = useState('杰伦')
 
   return (
-    <>
-      <button onClick={_ => setFirstName(`${new Date().getTime()}周`)}>姓氏</button>
-      <button onClick={_ => setLastName(`${new Date().getTime()}杰伦`)}>名字</button>
+    <div>
+      <button onClick={() => setFirstName(`${new Date().getTime()}周`)}>姓氏</button>
+      <button onClick={() => setLastName(`${new Date().getTime()}杰伦`)}>名字</button>
       <Child surName={firstName}>{lastName}</Child>
-    </>
+    </div>
   )
 }
 
@@ -18,12 +18,12 @@ function Child({surName, children}) {
   // const myName = updateName()
 
   // 2. 使用useMemo
-  const myName = useMemo(_ => updateName(children), [children])
+  const myName = useMemo(() => updateName(children), [children])
   return (
-    <>
+    <div>
       <h3><span style={{color: 'red'}}>{surName}</span><span style={{color: 'green'}}>{children}</span></h3>
       <h3>新名字：{myName}</h3>
-    </>
+    </div>
   )
 }
 
